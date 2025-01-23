@@ -108,3 +108,4 @@ number methods : toFixed() used to fix decimal values
 Math :
   math properties : Math.PI etc
   math methods : Math.sqrt() ,min(),max(),pow(),round(),log(),ceil() // max roundoff 4.4 = 5,floor() // min roundoff 4.9 = 4,abs() // it only returns value ex : abs(-5) = 5
+  
