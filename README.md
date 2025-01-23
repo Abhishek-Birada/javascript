@@ -107,5 +107,9 @@ number methods : toFixed() used to fix decimal values
 
 Math :
   math properties : Math.PI etc
-  math methods : Math.sqrt() ,min(),max(),pow(),round(),log(),ceil() // max roundoff 4.4 = 5,floor() // min roundoff 4.9 = 4,abs() // it only returns value ex : abs(-5) = 5
+  math methods : Math.sqrt() ,min(),max(),pow(),round(),log()
+  ceil() // max roundoff 4.4 = 5
+  floor() // min roundoff 4.9 = 4
+  abs() // it only returns value ex : abs(-5) = 5
+  random() // generates values between 0 and 1, like 0.1 or 0.231 etc
   
