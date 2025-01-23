@@ -80,10 +80,31 @@ example : let name = "abhi"
 	  let age = 22
 	  console.log(` my name is ${name} and I am ${age} years old `) // instead of "my name is" + name + "and I am" +age+ "years old"
 
+naming convension : pascal case : first letter of every word should be capital. example : Abhishek or AbhishekBiradar // this convension is used for class names
+		    camel case : except first word, first letter of other words should be capital example : abhishek or abhishekBiradar // this convension is used for variables,method names etc
+overview of an class : class have{ 
+				variables/properties/attrributes
+    				functions/methods/behaviour
+                       }
+
 String as an object :
- 
+
+new keyword is used create an object to a class
 let name1 = "abhi" // typeof name1 is string
 let name = String("abhi") // typeof name is string
 let name2 = new String ("abhishek" )  // typeof name2 is object
+Few string properties : length
+Few string methods : chartAt() concat() indexOf() toUpperCase() toLowerCase() startsWith() endsWith() replace() includes() padStart(finalstringlength,value) padEnd() repeat() replace() replaceAll() slice() split() split returns an array substring() toString() trim() trimStart() trimEnd()
 
-Few string methods : length,chartAt() concat() indexOf() toUpperCase() toLowerCase() startsWith() endsWith() replace() includes() padStart(finalstringlength,value) padEnd() repeat() replace() replaceAll() slice() split() split returns an array substring() toString() trim() trimStart() trimEnd()
+Number as an object :
+
+let num = new Number(10) // typeof num is object not number
+number properties : MAX_VALUE or MIN_VALUE etc
+number methods : toFixed() used to fix decimal values
+		 toString() 
+		 toLocaleString() coverts an number into local number naming culture example: let num=new Number(100000) num.toLocaleString(en-IN) is represented as 1,00,000 in indian standards, 100,000 in US 		 standards use en-US.
+                 toPrecision() etc
+
+Math :
+  math properties : Math.PI etc
+  math methods : Math.sqrt() ,min(),max(),pow(),round(),log(),ceil() // max roundoff 4.4 = 5,floor() // min roundoff 4.9 = 4,abs() // it only returns value ex : abs(-5) = 5
