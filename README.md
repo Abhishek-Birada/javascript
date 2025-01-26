@@ -112,4 +112,31 @@ Math :
   floor() // min roundoff 4.9 = 4
   abs() // it only returns value ex : abs(-5) = 5
   random() // generates values between 0 and 1, like 0.1 or 0.231 etc
-  
+
+Date and Time :
+	the time is calculated from 1 jan,1970 in milliseconds.
+ 	ex : let time = Date.now() // 1737901708692 this value is in millliseconds from 1 jan 1970 // dont use new keyword here for now() method
+  	Syntax : let date = new Date()
+   		date.getTime() // 1737901708692 this value is in millliseconds from 1 jan 1970
+  	Date have getXYZ() and setXYZ() methods and toString(),toLocaleString() etc.
+
+Arrays :
+
+collection of elements of same and mixed datatypes.
+syntax : let  arr = [1,2,3,4,5]
+	 let array = new Array(1,2,3,4,5)
+  	 console.log(arr) // [1,2,3,4,5]
+    	 arr[0] // 1
+    	 arr.length // 5
+    	arr.push(6) // adds element at last
+     	arr.pop() // removes last element
+      	arr.unshift(7) // adds element at first 
+        arr.shift() // removes first element
+	arr.includes(1) // true
+ 	arr.indexOf(1) // 0
+       arr.concat(array) // adds two arrays and returns an concatenated array [1,2,3,4,5,1,2,3,4,5]
+       arr.join(array) // adds two arrays but returns an string with specified separator without square brackets 1,2,3,4,5,1,2,3,4,5
+       arr.slice(0,n-1) // ex : n=3 returns an array [1,2,3]
+       arr.splice(0,n) // n=3 returns an array [1,2,3,4] and it also changes the original array that is arr = [5]
+       let newArr = [...arr,...array] // it merges both arrays '...' is spread operater
+       flat,isArray,from,of
