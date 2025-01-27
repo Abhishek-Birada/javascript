@@ -41,7 +41,7 @@ Example : let a = 10
 BigInt : It is used to very large integer values.
 Example : let a = 99999n
 	
-String : It is collection characters enclosed in single or double quotes.
+String : It is collection of characters enclosed in single or double quotes.
 Example : let name = "Abhishek"
 	           	
 Symbol	: It is used for making a value or anything as unique.(not a correct definition)
@@ -72,7 +72,12 @@ BigInt	           "bigint"
 String	           "string"	
 Symbol	           "symbol"
 
-Non Primitive Datatypes : Arrays, objects, functions etc
+Non Primitive Datatypes : Arrays, objects, functions etc // Non Primitive Datatypes are passed as reference that means if we change value of one variable the value also gets changed in another variable unlike primitive datatypes . example : let a = 10
+				let b = a // b = 10
+    				b = 9 // here b value changes but a value doesn't change 
+				let a = [1,2,3]
+    				let b = a // b = [1,2,3] b and a point to [1,2,3]
+				b.push(4) // b array changes and a array also changes because a and b point to same array 
 
 
 Backticks : ` `
@@ -86,13 +91,13 @@ overview of an class : class have{
 				variables/properties/attrributes
     				functions/methods/behaviour
                        }
-
+// object in js are different from objects in other languages. object in js ex : let obj = { key : value }
 String as an object :
 
-new keyword is used create an object to a class
+new keyword is used create an object 
 let name1 = "abhi" // typeof name1 is string
 let name = String("abhi") // typeof name is string
-let name2 = new String ("abhishek" )  // typeof name2 is object
+let name2 = new String ("abhishek" )  // typeof name2 is object // internally name2 = { }
 Few string properties : length
 Few string methods : chartAt() concat() indexOf() toUpperCase() toLowerCase() startsWith() endsWith() replace() includes() padStart(finalstringlength,value) padEnd() repeat() replace() replaceAll() slice() split() split returns an array substring() toString() trim() trimStart() trimEnd()
 
@@ -140,3 +145,8 @@ syntax : let  arr = [1,2,3,4,5]
        arr.splice(0,n) // n=3 returns an array [1,2,3,4] and it also changes the original array that is arr = [5]
        let newArr = [...arr,...array] // it merges both arrays '...' is spread operater
        flat,isArray,from,of
+Object : symmbol for onjects is {}
+	 It stores key : value pairs 
+  	 Key and values cane be anything like variables , strings , numbers  etc let obj = { age : 10, "name" : 20, 0 : 30 }
+    	 obj.age // 10
+      	 obj["age" or 'age'] // 10
