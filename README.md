@@ -143,10 +143,20 @@ syntax : let  arr = [1,2,3,4,5]
        arr.join(array) // adds two arrays but returns an string with specified separator without square brackets 1,2,3,4,5,1,2,3,4,5
        arr.slice(0,n-1) // ex : n=3 returns an array [1,2,3]
        arr.splice(0,n) // n=3 returns an array [1,2,3,4] and it also changes the original array that is arr = [5]
-       let newArr = [...arr,...array] // it merges both arrays '...' is spread operater
+       // let a=[1,2,3] 
+       	  let b=[4,5] 
+	  let c=[a,b] // merging both arrays o/p  : [ [1,2,3] , [4,5]  ] , but if we want o/p as [1,2,3,4,5] use spread operator
+       let newArr = [...a,...b] // it merges both arrays '...' is spread operater
        flat,isArray,from,of
-Object : symmbol for onjects is {}
+Object : symmbol for objects is {}
+	 An object is a collection of properties, and a property is an association between a name (or key) and a value. A property's value can be a function, in which case the property is known as a method.
 	 It stores key : value pairs 
+  	 syntax : let a = {} // o/p : {} this is empty object 
+    	         let b = new Object() // o/p : {} this is also an empty object 
   	 Key and values cane be anything like variables , strings , numbers  etc let obj = { age : 10, "name" : 20, 0 : 30 }
-    	 obj.age // 10
-      	 obj["age" or 'age'] // 10
+    	// accessing key from object 
+    	 obj.age // 10 or obj["age" or 'age'] // 10
+      // adding new key from outside
+      obj.surname = "biradar"
+      // changing values of the keys
+      obj.age  = 22
