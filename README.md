@@ -160,3 +160,38 @@ Object : symmbol for objects is {}
       obj.surname = "biradar"
       // changing values of the keys
       obj.age  = 22
+      let a={1:2} 
+       	  let b={2:3} 
+	  let c={a,b} // merging both objects o/p  : { {1:2} , {2:3}  } , but if we want o/p as {1:2,2:3} use spread operator
+	 let newobj = {...a,...b}
+
+  Functions :
+     function functionName( parameters ){
+
+     }
+     functionName(arguments)
+
+     function print( ){
+	console.log("abhishek")
+     }
+     print() // this function prints only name, it doesn't return any value
+
+     function print( ){
+	console.log("abhishek")
+     }
+     let result = print() // here also the function prints only name, it doesn't return any value. If we print result ,its value will be undefined
+     function print( ){
+	return "abhishek"
+     }
+     let result = print() // here the function  return a value and it's stored in a variable. If we print result ,its value will be abhishek
+
+     // if we want to send multiple arguments at once. we use rest operator.
+     example : function print( ...num ){
+	     return num
+     }
+    console.log( print(1,2,3)) // it returns an array [1,2,3] here num becomes an array
+
+    Scope :
+    let variables are block scope. That means variables are only available inside a block not outside the block.
+    var variables are global scope. That means variables are available throughout the code
+    
