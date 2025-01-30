@@ -192,6 +192,6 @@ Object : symmbol for objects is {}
     console.log( print(1,2,3)) // it returns an array [1,2,3] here num becomes an array
 
     Scope :
-    let variables are block scope. That means variables are only available inside a block not outside the block.
+    let and  const variables are block scope. That means variables are only available inside a block not outside the block.
     var variables are global scope. That means variables are available throughout the code
     
