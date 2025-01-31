@@ -1,5 +1,6 @@
 # javascript
 Node js allows developers to write JavaScript code that runs directly in a computer like in vs codes terminal itself instead of in a browser. There are also other js environment other than node.js like deno.js etc
+Node js helps in executing the js file and dispalys the output
 If we don't install node.js then we cant run js file in vs code's terminal.
 node -v command is used for checking the version of node.js or to check whether node is installed or not.
 node filename.js to execute js file.
