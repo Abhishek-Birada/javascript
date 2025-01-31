@@ -195,3 +195,25 @@ Object : symmbol for objects is {}
     let and  const variables are block scope. That means variables are only available inside a block not outside the block.
     var variables are global scope. That means variables are available throughout the code
     
+Anonymus Function : A function without function name. 
+Example : let ans = function (){
+		    console.log("heelo")
+}
+console.log(ans) // output : function (){
+		                 console.log("heelo")
+				}
+console.log(ans())  // hello  
+
+Hoisting : calling the function before its creation.
+ Example :
+ print()
+ function print( ){
+	console.log("abhishek")
+ } 
+ o/p : abhishek
+ But hoisting is not possible with anonymous function, it will generate an error.
+ print()
+ let print = function ( ){
+	console.log("abhishek")
+ }
+ o/p : Error
