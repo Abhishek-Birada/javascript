@@ -218,3 +218,13 @@ Hoisting : calling the function before its creation.
 	console.log("abhishek")
  }
  o/p : Error
+
+ Arrow Function : () => {}
+ example : let ans = (a,b) =>{ return a+b } // explicit return
+ console.log(ans(2,3)) // 5
+ console.log(ans) // (a,b) =>{ return a+b }
+
+ let ans = (a,b) => a+b  // implicit return , no need to write return if there is only one line of code
+ 						or
+let ans = (a,b) => (a+b)  // implicit return , no need to write return if there is only one line of code
+ 
