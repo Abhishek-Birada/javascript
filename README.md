@@ -9,6 +9,7 @@ console.log() - is used for printing.
 console.table([a,b,c,d] - is used for printing multiple variable's value at once.
 // is used for single line comment.
 /* */ is used for multi line comment's.
+At the end of the line you can use ; or you can ignore using it
 variables in js :
 
 constant : constant variables value cannot be changed after assigning a value to it.
@@ -245,7 +246,8 @@ Operators :
  7. Ternary operator : condition ? true part : false part. If condition is true returns true part and if condition is false then it returns false part.
     		       Example : let age = 18
     				 let ans = (age >= 18)? 'can vote' : 'cannot vote'
- Truthy and falsy values :
+ falsy values : false, 0, null, undefined, NaN, "" are considered as falsy values.
+ truthy values : All other values including all objects evaluate to true when passed to a conditional statement.
 // in, instanceof, typeof,new, super etc are also called as operators
  conditional statements :
   1. if( condition ){
@@ -263,3 +265,46 @@ Operators :
      }else{
     
     }
+ 4.switch (expression) {
+	case label1: statements1;
+    			break;
+  	case label2: statements2;
+                break;
+ 	 so on
+  	default: statementsDefault;
+}
+
+Loops : easy way to do something repeatedly. 
+1. for loop :
+   syntax : for ( initialization; condition; increment or decrement ){
+   
+            }
+2. while loop :
+   syntax : while( condition ){
+   
+            }
+3. do while loop :
+   syntax : do{
+   
+            }while( condition )
+break statement : it is used to come out of the loops and switch statement.
+example : for(let i = 0;i<5;i++){
+	   console.log(" hi ")
+    	   break
+	   console.log(" hello ")
+}
+o/p : hi 
+continue statement : it is used to ignore the current iteration and move to the next iteration.
+example : for(let i = 0;i<5;i++){
+	   
+    	   if( i == 3){
+		console.log("you skipped printing 3 by using continue")
+  		continue
+	   }   
+    	   console.log(i)
+}
+o/p : 0
+      1
+      2
+      you skipped printing 3 by using continue
+      4
