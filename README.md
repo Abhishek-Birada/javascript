@@ -227,4 +227,39 @@ Hoisting : calling the function before its creation.
  let ans = (a,b) => a+b  // implicit return , no need to write return if there is only one line of code
  						or
 let ans = (a,b) => (a+b)  // implicit return , no need to write return if there is only one line of code
- 
+
+ this keyword : this refers to current object and it is used inside the object.
+ 		if we print only this, then it refers to an empty object = { } in node environment.
+   		But in browser, this refers to global object that is Window{}
+
+Operators :
+
+ 1. Arithmetic operators : +, -, *, /, %, **(exponentiation), ++(increment){ pre ++, post ++ }, --(decrement){ pre --, post -- }
+ 2. Comparison operators : >, >=, <, <=, ==(equal only checks values), !=(not equal only checks values), ===(strict equal checks values and datatypes), !==(strict not equal checks values and datatypes)
+ 3. assignment operators : =, +=, -=, *=, /=, %=, **= etc Example: let a += 10 ( a=a+10)
+ 4. Logical operators : Logical and (&&) : returns true if all the conditions are true, else it returns false.
+			Logical or (||) : returns true if any one of the condition is true, else it returns false.
+    			Logical not (!) : it converts true to false and false to true.
+    			null coalescing operator ( ?? ) : value1 ?? value2. if value1 is null or undefined it will return value2 or else it will return value1
+ 6. bitwise operators : |, &, ^, ~, >>, <<, >>>
+ 7. Ternary operator : condition ? true part : false part. If condition is true returns true part and if condition is false then it returns false part.
+    		       Example : let age = 18
+    				 let ans = (age >= 18)? 'can vote' : 'cannot vote'
+ Truthy and falsy values :
+// in, instanceof, typeof,new, super etc are also called as operators
+ conditional statements :
+  1. if( condition ){
+     
+	}
+  2. if( condition ){
+     
+     }else{
+     
+     }
+ 3. if( condition ){
+     
+     }else if(){
+     
+     }else{
+    
+    }
