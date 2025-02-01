@@ -308,3 +308,5 @@ o/p : 0
       2
       you skipped printing 3 by using continue
       4
+4.for of loop :
+5.for in loop :
