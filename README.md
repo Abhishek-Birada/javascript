@@ -308,5 +308,14 @@ o/p : 0
       2
       you skipped printing 3 by using continue
       4
-4.for of loop :
+4.for of loop : 
+	syntax : for(iterator of iterable){
+ 
+	            }
+	example : let arr = [1,2,3,4,5]
+ 		  for(let i of arr){
+     			console.log(i)
+		  }
+    		o/p : 1 2 3 4 5
+     
 5.for in loop :
