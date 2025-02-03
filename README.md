@@ -317,5 +317,18 @@ o/p : 0
      			console.log(i)
 		  }
     		o/p : 1 2 3 4 5
-     
+     itrerables can be array,string,map but not object,because object is not iterable.
 5.for in loop :
+6.forEach( callback function) or forEach( callback function,this(optional)) : 
+	callback function - it can be arrow function or  anonymus function.
+        The arguments of callback function are element, index,array.
+        The name of the arguments can be anything, but their order cannot be changed.
+        Return value of callback function is ignored.
+        forEach only returns undefined.
+7.filter(callback function) or filter(callback function,this(optional):
+
+     callback function - it can be arrow function or  anonymus function.
+     The arguments of callback function are element, index,array.
+     The name of the arguments can be anything, but their order cannot be changed.
+     Filter function returns an array.
+     If callback function returns truthy value, then only it will add the current element in the result array.
