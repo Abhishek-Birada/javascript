@@ -308,7 +308,19 @@ o/p : 0
       2
       you skipped printing 3 by using continue
       4
-4.for of loop : 
+Map object : It stores key value pairs same as object.
+	     But the insertion order of keys is remembered by map and object doesnt remember insertion order of keys.
+      	     Map only inserts unique keys unlike object.
+	     syntax : let map = new Map()
+     	     map.set(key,value) is used to insert key and value pairs in map.
+             map.get(key) is used to get the value of the key.
+	     map.size property is used to get the size of the map.
+      	     map.delete(key) removes a particular key from the map.
+	     map.clear() removes all the key value pairs from the map.
+      	     map.keys() returns an object of  all the keys.
+	     map.values() returns an object of all the values.
+             map.has(key) returns true or false based on if key is present in the map or not.
+4.for of loop : It is used to get values.
 	syntax : for(iterator of iterable){
  
 	            }
@@ -318,7 +330,8 @@ o/p : 0
 		  }
     		o/p : 1 2 3 4 5
      itrerables can be array,string,map but not object,because object is not iterable.
-5.for in loop :
+5.for in loop : It is used to get keys. 
+		keys of array are indexs.
 6.forEach( callback function) or forEach( callback function,this(optional)) : 
 	foreach is generic method used to perform operations
 	callback function - it can be arrow function or  anonymus function.
@@ -326,20 +339,20 @@ o/p : 0
         The name of the arguments can be anything, but their order cannot be changed.
         Return value of callback function is ignored.
         forEach only returns undefined.
-7.filter(callback function) or filter(callback function,this(optional):
+7.array.filter(callback function) or filter(callback function,this(optional):
      callback function - it can be arrow function or  anonymus function.
      The arguments of callback function are element, index,array.
      The name of the arguments can be anything, but their order cannot be changed.
      Filter function returns an array.
      If callback function returns truthy value, then only it will add the current element in the result array.
-8.map(callback function) or map(callback function,this(optional):
+8.array.map(callback function) or map(callback function,this(optional):
      map is generic method used to perform operations
      callback function - it can be arrow function or  anonymus function.
      The arguments of callback function are element, index,array.
      The name of the arguments can be anything, but their order cannot be changed.
      map function returns an array.
      the value returned by the callback function is added in the result array.
-9.reduce( callback function ) or reduce( callback function, initialvalue ) :
+9.array.reduce( callback function ) or reduce( callback function, initialvalue ) :
 	reduce is generic method used to perform operations
 	callback function - it can be arrow function or  anonymus function.
  	The arguments of callback function are accumalator(result),element, index,array.
