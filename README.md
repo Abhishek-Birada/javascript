@@ -233,6 +233,11 @@ let ans = (a,b) => (a+b)  // implicit return , no need to write return if there 
  		if we print only this, then it refers to an empty object = { } in node environment.
    		But in browser, this refers to global object that is Window{}
 
+IIFE : imediately invoked function expression
+       it is used to get rid of global pollutants.
+       (function creation it can be normal function or anonymus function or arrow function)(parameters);
+       ex : let a = ( function (name){ return name })('abhishek');
+       		console.log(a) // abhishek
 Operators :
 
  1. Arithmetic operators : +, -, *, /, %, **(exponentiation), ++(increment){ pre ++, post ++ }, --(decrement){ pre --, post -- }
@@ -329,9 +334,34 @@ Map object : It stores key value pairs same as object.
      			console.log(i)
 		  }
     		o/p : 1 2 3 4 5
+      		let map = new Map()
+		a.set(0,1)
+  		a.set(1,2)
+    		for(let [i] of map ){ [i] this is syntax for maps
+      			console.log(i) // 0,2
+		}
+  		for(let [,i] of map ){ [i] this is syntax for maps
+      			console.log(i) // 1,2
+		}
+  		for(let [i,j] of map ){ [i] this is syntax for maps
+      			console.log(i,j) // 0 1  1 2
+		}
      itrerables can be array,string,map but not object,because object is not iterable.
 5.for in loop : It is used to get keys. 
 		keys of array are indexs.
+  		here we can use objects but not maps.
+    		let arr = [1,2,3,4,5]
+ 		  for(let i in arr){
+     			console.log(i)
+		  }
+    		o/p : 0 1 2 3 4 // here indexs are considered as keys
+      		let obj = { name : 'abhi',age : 22 }
+		for(let i in obj){
+  			console.log(i) // name age are keys
+		}
+  		for(let i in obj){
+  			console.log(obj[i]) // 'abhi' 22
+		}
 6.forEach( callback function) or forEach( callback function,this(optional)) : 
 	foreach is generic method used to perform operations
 	callback function - it can be arrow function or  anonymus function.
