@@ -12,9 +12,14 @@ columns : it is optional. But it should be array containing the columns which yo
 // is used for single line comment.
 /* */ is used for multi line comment's.
 At the end of the line you can use ; or you can ignore using it
+prompt(message(optional)): pops up a input box and converts input value into string.
+alert(message): pops up a alert box.
+
 variables in js :
 
 constant : constant variables value cannot be changed after assigning a value to it.
+	   we cannot reassign new value to const variable.
+    	   But we can update the values of array or object,like adding new element to array or key to object.
 example : const myName = "abhishek" 
           myName="abhi" // error
 let : mostly used variable  is let.variables value can be changed after assigning a value to it.
@@ -23,6 +28,9 @@ example : let myName = "abhishek"
 var :  var is not used commonly because of it's issue in block scope and functional scope. var was widely used in older version's of javascript.
 nothing : No keyword is used for defining a variable here.
 Example :  myName="abhi" // no error
+Scope :
+    let and  const variables are block scope. That means variables are only available inside a block not outside the block.
+    var variables are global scope. That means variables are available throughout the code
 
 Data Types:
   
@@ -47,11 +55,19 @@ Example : let a = 99999n
 	
 String : It is collection of characters enclosed in single or double quotes.
 Example : let name = "Abhishek"
-	           	
+string+string = string
+string+number=string
+except + all other operators like -,*,/,%,** result in number with string
+ex : 'abhi'+'shek'='abhishek'
+     'abhi'+4 = 'abhi4'
+     '123'+4 = '1234'
+     'abhi'- 4 = NaN
+     '123' -3= 120
 Symbol	: It is used for making a value or anything as unique.(not a correct definition)
 Example : let a = Symbol(10)
 	  let b = Symbol(10)
 	  log(a === b) // false because == checks only values but === checks value and datatype, here both values are considered as unique
+shortcut to remember data types is sbnsbnu.
 
 Type Conversion :
 
@@ -96,6 +112,7 @@ overview of an class : class have{
     				functions/methods/behaviour
                        }
 // object in js are different from objects in other languages. object in js ex : let obj = { key : value }
+
 String as an object :
 
 new keyword is used create an object 
@@ -170,10 +187,10 @@ Object : symmbol for objects is {}
 	 let newobj = {...a,...b}
 
   Functions :
-     function functionName( parameters ){
+     function functionName( arguments  ){
 
      }
-     functionName(arguments)
+     functionName(parameters)
 
      function print( ){
 	console.log("abhishek")
@@ -195,9 +212,7 @@ Object : symmbol for objects is {}
      }
     console.log( print(1,2,3)) // it returns an array [1,2,3] here num becomes an array
 
-    Scope :
-    let and  const variables are block scope. That means variables are only available inside a block not outside the block.
-    var variables are global scope. That means variables are available throughout the code
+    
     
 Anonymus Function : A function without function name. 
 Example : let ans = function (){
