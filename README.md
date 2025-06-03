@@ -6,7 +6,9 @@ node -v command is used for checking the version of node.js or to check whether 
 node filename.js to execute js file.
 
 console.log() - is used for printing.
-console.table([a,b,c,d]) - is used for printing multiple variable's value at once.
+console.table(data,columns) : used to show data in table format.
+data : array or object
+columns : it is optional. But it should be array containing the columns which you want in your table.
 // is used for single line comment.
 /* */ is used for multi line comment's.
 At the end of the line you can use ; or you can ignore using it
