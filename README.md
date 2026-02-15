@@ -9,6 +9,20 @@ console.log() - is used for printing.
 console.table(data,columns) : used to show data in table format.
 data : array or object
 columns : it is optional. But it should be array containing the columns which you want in your table.
+some other console methods : 
+assert()
+clear()
+count()
+countReset()
+error()
+group()
+groupCollapsed()
+groupEnd()
+time()
+timeEnd()
+timeLog()
+trace()
+warn() etc.
 // is used for single line comment.
 /* */ is used for multi line comment's.
 At the end of the line you can use ; or you can ignore using it
@@ -22,7 +36,7 @@ constant : constant variables value cannot be changed after assigning a value to
     	   But we can update the values of array or object,like adding new element to array or key to object.
 example : const myName = "abhishek" 
           myName="abhi" // error
-let : mostly used variable  is let.variables value can be changed after assigning a value to it.
+let : mostly used variable  is let. variables value can be changed after assigning a value to it.
 example : let myName = "abhishek"
            myName="abhi" // no error
 var :  var is not used commonly because of it's issue in block scope and functional scope. var was widely used in older version's of javascript.
@@ -39,7 +53,7 @@ Data Types:
 Null : 	It's value  is nothing.
 Example : let a = null 
 
-Undefined : It is nothing but not assigning a value to a variable.
+Undefined : It is nothing but not assigning a value to a variable after creating it or declaring it.
 Example : let a 
 	  console.log(a) // undefined
 	
@@ -63,7 +77,7 @@ ex : 'abhi'+'shek'='abhishek'
      '123'+4 = '1234'
      'abhi'- 4 = NaN
      '123' -3= 120
-Symbol	: It is used for making a value or anything as unique.(not a correct definition)
+Symbol	: It is used for making a value or anything as unique and it is immutable.(not a correct definition)
 Example : let a = Symbol(10)
 	  let b = Symbol(10)
 	  log(a === b) // false because == checks only values but === checks value and datatype, here both values are considered as unique
@@ -84,20 +98,26 @@ NaN : It stands for not a number
 
 Typeof	        typeof return value	
 
-Null	           "object"	
-Undefined	 "undefined"	
+Null	           "object"	( its an bug from 1995, it should be null, but it returns object)
+Undefined	 	  "undefined"	
 Boolean	          "boolean"	
 Number	           "number"	
 BigInt	           "bigint"	
 String	           "string"	
 Symbol	           "symbol"
-
+array              "object"
+function           "function"
 Non Primitive Datatypes : Arrays, objects, functions etc // Non Primitive Datatypes are passed as reference that means if we change value of one variable the value also gets changed in another variable unlike primitive datatypes . example : let a = 10
 				let b = a // b = 10
     				b = 9 // here b value changes but a value doesn't change 
 				let a = [1,2,3]
-    				let b = a // b = [1,2,3] b and a point to [1,2,3]
+    				let b = a // b = [1,2,3], b and a point to [1,2,3]
 				b.push(4) // b array changes and a array also changes because a and b point to same array 
+shallow copy : it only copies values, but the reference or address is same.
+To overcome this, we use spread operator(...) for copying arrays, objects etc or using Object.assign().
+But, nested objects are still shared.
+deep copy : it copies values and the reference or address is different.
+use structuredClone() or JSON.parse(JSON.stringify()) methods.
 
 
 Backticks : ` `
@@ -106,21 +126,24 @@ example : let name = "abhi"
 	  console.log(` my name is ${name} and I am ${age} years old `) // instead of "my name is" + name + "and I am" +age+ "years old"
 
 naming convension : pascal case : first letter of every word should be capital. example : Abhishek or AbhishekBiradar // this convension is used for class names
-		    camel case : except first word, first letter of other words should be capital example : abhishek or abhishekBiradar // this convension is used for variables,method names etc
+camel case : except first word, first letter of other words should be capital example : abhishek or abhishekBiradar // this convension is used for variables,method names etc
 overview of an class : class have{ 
 				variables/properties/attrributes
     				functions/methods/behaviour
                        }
-// object in js are different from objects in other languages. object in js ex : let obj = { key : value }
+// object in js are different from objects in other languages.
+ object in js
+ ex : let obj = { key : value } 
+ objects in js also have properties and methods.
 
 String as an object :
-
+string in js are immutable.
 new keyword is used create an object 
 let name1 = "abhi" // typeof name1 is string
 let name = String("abhi") // typeof name is string
-let name2 = new String ("abhishek" )  // typeof name2 is object // internally name2 = { }
+let name2 = new String ("abhishek")  // typeof name2 is object // internally name2 = { }
 Few string properties : length
-Few string methods : chartAt() concat() indexOf() toUpperCase() toLowerCase() startsWith() endsWith() replace() includes() padStart(finalstringlength,value) padEnd() repeat() replace() replaceAll() slice() split() split returns an array substring() toString() trim() trimStart() trimEnd()
+Few string methods : at () chartAt() concat() indexOf() toUpperCase() toLowerCase() startsWith() endsWith() replace() includes() padStart(finalstringlength,value) padEnd() repeat() replace() replaceAll() slice() split() split returns an array substring() toString() trim() trimStart() trimEnd() etc
 
 Number as an object :
 
@@ -128,8 +151,10 @@ let num = new Number(10) // typeof num is object not number
 number properties : MAX_VALUE or MIN_VALUE etc
 number methods : toFixed() used to fix decimal values
 		 toString() 
-		 toLocaleString() coverts an number into local number naming culture example: let num=new Number(100000) num.toLocaleString(en-IN) is represented as 1,00,000 in indian standards, 100,000 in US 		 standards use en-US.
-                 toPrecision() etc
+		 parseInt()
+		 parseFloat()
+		 toLocaleString() coverts an number into local number naming culture example: let num=new Number(100000) num.toLocaleString(en-IN) is represented as 1,00,000 in indian standards, 100,000 in US 		             standards use en-US.
+         toPrecision() etc
 
 Math :
   math properties : Math.PI etc
@@ -137,7 +162,8 @@ Math :
   ceil() // max roundoff 4.4 = 5
   floor() // min roundoff 4.9 = 4
   abs() // it only returns value ex : abs(-5) = 5
-  random() // generates values between 0 and 1, like 0.1 or 0.231 etc
+  random() // generates values between 0 and 1, like 0.1 or 0.231 
+  ...etc
 
 Date and Time :
 	the time is calculated from 1 jan,1970 in milliseconds.
