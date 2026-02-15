@@ -284,9 +284,10 @@ IIFE : imediately invoked function expression
 Operators :
 
  1. Arithmetic operators : +, -, *, /, %, **(exponentiation), ++(increment){ pre ++, post ++ }, --(decrement){ pre --, post -- }
- 2. Comparison operators : >, >=, <, <=, ==(equal only checks values), !=(not equal only checks values), ===(strict equal checks values and datatypes), !==(strict not equal checks values and datatypes)
- 3. assignment operators : =, +=, -=, *=, /=, %=, **= etc Example: let a += 10 ( a=a+10)
- 4. Logical operators : Logical and (&&) : returns true if all the conditions are true, else it returns false.
+ 2. Number + string : It will convert number into string, other operators will convert the string to number.
+ 3. Comparison operators : >, >=, <, <=, ==(equal only checks values), !=(not equal only checks values), ===(strict equal checks values and datatypes), !==(strict not equal checks values and datatypes)
+ 4. assignment operators : =, +=, -=, *=, /=, %=, **= etc Example: let a += 10 ( a=a+10)
+ 5. Logical operators : Logical and (&&) : returns true if all the conditions are true, else it returns false.
 			Logical or (||) : returns true if any one of the condition is true, else it returns false.
     			Logical not (!) : it converts true to false and false to true.
     			null coalescing operator ( ?? ) : value1 ?? value2. if value1 is null or undefined it will return value2 or else it will return value1
