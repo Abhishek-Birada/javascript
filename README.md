@@ -1,5 +1,7 @@
 # javascript
 Node js allows developers to write JavaScript code that runs directly in a computer like in vs codes terminal itself instead of in a browser. There are also other js environment other than node.js like deno.js etc
+node is an compiler made by chrome's javascript engine that is v8 engine + some c++ code.
+every browser has different js engine for runing js code.
 Node js helps in executing the js file and dispalys the output
 If we don't install node.js then we cant run js file in vs code's terminal.
 node -v command is used for checking the version of node.js or to check whether node is installed or not.
@@ -25,15 +27,15 @@ trace()
 warn() etc.
 // is used for single line comment.
 /* */ is used for multi line comment's.
-At the end of the line you can use ; or you can ignore using it
+At the end of the line you can use semicolumn(;) or you can ignore using it.
 prompt(message(optional)): pops up a input box and converts input value into string.
 alert(message): pops up a alert box.
 
 variables in js :
-
-constant : constant variables value cannot be changed after assigning a value to it.
-	   we cannot reassign new value to const variable.
-    	   But we can update the values of array or object,like adding new element to array or key to object.
+A variable is a name given to a memory location in a computer’s memory. It is used to store data that can be changed during program execution.
+constant(const) : constant variables value cannot be changed after assigning a value to it.
+	              we cannot reassign new value to const variable.
+    	          But we can update the values of array or object,like adding new element to array or key to object.
 example : const myName = "abhishek" 
           myName="abhi" // error
 let : mostly used variable  is let. variables value can be changed after assigning a value to it.
@@ -44,13 +46,21 @@ nothing : No keyword is used for defining a variable here.
 Example :  myName="abhi" // no error
 Scope :
     let and  const variables are block scope. That means variables are only available inside a block not outside the block.
-    var variables are global scope. That means variables are available throughout the code
+    var variables are global scope. That means variables are available throughout the code.
+	
+identifiers : identifier is a name given to variable by following some rules.
+			  1. we can use uppercase and lowercase alphabets.
+			  2. we can use numbers from 0-9.
+			  3. we can only use underscore(_) and dolloar($) sign's only.
+			  4. variable name should start with alphabet or underscore(_) or dolloar($) only, not with number.
+			  5. variable name cannot be a keyword like while,for,if,function etc.
+			  6. JavaScript is case sensitive, that means A and a are different.
 
 Data Types:
   
 7  Primitive Datatypes:
 	
-Null : 	It's value  is nothing.
+Null : 	It's value is nothing.
 Example : let a = null 
 
 Undefined : It is nothing but not assigning a value to a variable after creating it or declaring it.
@@ -106,6 +116,7 @@ BigInt	           "bigint"
 String	           "string"	
 Symbol	           "symbol"
 array              "object"
+object             "object"
 function           "function"
 Non Primitive Datatypes : Arrays, objects, functions etc // Non Primitive Datatypes are passed as reference that means if we change value of one variable the value also gets changed in another variable unlike primitive datatypes . example : let a = 10
 				let b = a // b = 10
@@ -127,10 +138,10 @@ example : let name = "abhi"
 
 naming convension : pascal case : first letter of every word should be capital. example : Abhishek or AbhishekBiradar // this convension is used for class names
 camel case : except first word, first letter of other words should be capital example : abhishek or abhishekBiradar // this convension is used for variables,method names etc
-overview of an class : class have{ 
-				variables/properties/attrributes
-    				functions/methods/behaviour
-                       }
+Constants are often in UPPERCASE.
+Example : MAX_VALUE
+These conventions, are not mandatory rules, but following them makes code easier to read and understand.
+
 // object in js are different from objects in other languages.
  object in js
  ex : let obj = { key : value } 
@@ -435,5 +446,9 @@ Map object : It stores key value pairs same as object.
     	the return value of callback function is stored in accumalator at every stage till the end of the array.
     	if we specify the initialvalue, then the accumalator value at first will be initial value.
      	if we don't specify the initialvalue, then the accumalator value at first will be 0th index value and element will be pointing to 1st index value .
-     
+
+overview of an class : class have{ 
+				variables/properties/attrributes
+    				functions/methods/behaviour
+                       }
   	
