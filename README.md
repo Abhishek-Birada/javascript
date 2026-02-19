@@ -36,14 +36,16 @@ A variable is a name given to a memory location in a computer’s memory. It is 
 constant(const) : constant variables value cannot be changed after assigning a value to it.
 	              we cannot reassign new value to const variable.
     	          But we can update the values of array or object,like adding new element to array or key to object.
+				  in short, the space is fixed not the value in the space.
 example : const myName = "abhishek" 
           myName="abhi" // error
-let : mostly used variable  is let. variables value can be changed after assigning a value to it.
+let : variables value can be changed after assigning a value to it.
 example : let myName = "abhishek"
            myName="abhi" // no error
 var :  var is not used commonly because of it's issue in block scope and functional scope. var was widely used in older version's of javascript.
 nothing : No keyword is used for defining a variable here.
 Example :  myName="abhi" // no error
+good practice : use const more instead of let.
 Scope :
     let and  const variables are block scope. That means variables are only available inside a block not outside the block.
     var variables are global scope. That means variables are available throughout the code.
@@ -76,8 +78,9 @@ Example : let a = 10
 	
 BigInt : It is used to very large integer values.
 Example : let a = 99999n
+put n at the end of the number, so it will become Big integer.
 	
-String : It is collection of characters enclosed in single or double quotes.
+String : It is collection of characters enclosed in single or double quotes and it is immutable.
 Example : let name = "Abhishek"
 string+string = string
 string+number=string
@@ -88,10 +91,11 @@ ex : 'abhi'+'shek'='abhishek'
      'abhi'- 4 = NaN
      '123' -3= 120
 Symbol	: It is used for making a value or anything as unique and it is immutable.(not a correct definition)
+		  in future while using symbol, use toString() method with it.
 Example : let a = Symbol(10)
 	  let b = Symbol(10)
 	  log(a === b) // false because == checks only values but === checks value and datatype, here both values are considered as unique
-shortcut to remember data types is sbnsbnu.
+
 
 Type Conversion :
 
@@ -105,6 +109,7 @@ let g = Symbol()
 typeof() is used return the type of the variable or value.
 
 NaN : It stands for not a number
+two NaN's cannot be same.so use Number.isNaN() method.
 
 Typeof	        typeof return value	
 
@@ -147,34 +152,78 @@ These conventions, are not mandatory rules, but following them makes code easier
  ex : let obj = { key : value } 
  objects in js also have properties and methods.
 
-String as an object :
-string in js are immutable.
+String :
+string in js are immutable. That means we cannot do :
+Example - let a ="abhi"
+          a[0] = "A" // error
+But we can reassign a new string value to the variable.
+Example : let a ="abhi"
+		  a="abhishek"
+	      a[99] // gives undefined
+		  a.charAt(99) // gives empty string
+		  a.at(99) // gives undefined
 new keyword is used create an object 
 let name1 = "abhi" // typeof name1 is string
 let name = String("abhi") // typeof name is string
 let name2 = new String ("abhishek")  // typeof name2 is object // internally name2 = { }
 Few string properties : length
-Few string methods : at () chartAt() concat() indexOf() toUpperCase() toLowerCase() startsWith() endsWith() replace() includes() padStart(finalstringlength,value) padEnd() repeat() replace() replaceAll() slice() split() split returns an array substring() toString() trim() trimStart() trimEnd() etc
+Few string methods : 
+at() : it returns a new string by extracting the character from a specified index of other string.
+		it also works with negative indexing.(-1 represents last character of a string)
+		ex : name.at(-1) // i
+chartAt() : it returns a new string by extracting the character from a specified index of other string.
+		    it does not work with negative indexing.
+			ex : name.charAt(0) // a
+concat() : it returns a new string by adding two strings.
+		   ex : let a = name.concat("shek")
+startsWith(), endsWith() : true or false
+toUpperCase(), toLowerCase()
+includes() : returns true or false, if the string is present or not in the string.
+			 ex : let myName = "abhishekbiradar"
+			 	  console.log(myName.includes("abhi")) // true
+indexOf() : searches the string and returns the index of the first occurrence of the specified substring. return value : index or -1.
+lastIndexOf() : searches the string and returns the index of the last occurrence of the specified substring. return value : index or -1.
+replace() includes() padStart(finalstringlength,value) padEnd() repeat() replace() replaceAll() slice() split() split returns an array substring() toString() trim() trimStart() trimEnd() etc
 
-Number as an object :
+Number :
 
 let num = new Number(10) // typeof num is object not number
-number properties : MAX_VALUE or MIN_VALUE etc
-number methods : toFixed() used to fix decimal values
-		 toString() 
-		 parseInt()
-		 parseFloat()
-		 toLocaleString() coverts an number into local number naming culture example: let num=new Number(100000) num.toLocaleString(en-IN) is represented as 1,00,000 in indian standards, 100,000 in US 		             standards use en-US.
-         toPrecision() etc
+number properties : 
+
+EPSILON
+MAX_SAFE_INTEGER
+MAX_VALUE
+MIN_SAFE_INTEGER
+MIN_VALUE
+NaN
+NEGATIVE_INFINITY
+POSITIVE_INFINITY
+
+number methods : 
+
+Number.isFinite() : it checks that a given value is a finite number or not.( true or false )
+Number.isInteger() : it checks that a given value is a integer or not.( true or false )
+Number.isNaN() : it checks that a given value is a NaN or not.( true or false )
+Number.isSafeInteger() : checks, whether the integer is between -(2 power 53 – 1) and (2 power 53 – 1).( true or false )
+Number.parseFloat() : converts a string into float or returns NaN.
+Number.parseInt(string) or Number.parseInt(string, radix(optional) ) : converts a string into integer or returns NaN. Radix is nothing but base, like 10(default),2,16,8 etc 
+anything.toFixed() : used to fix decimal places of a value and returns it in string format.
+anything.toString() : used to convert the number into string.
+anything.toPrecision() : it is used to fix the number of digits in a given number and returns a string. Ex : 1234.56 toPrecision(5) to "1234.5", but for 0.00123 toPrecision(2) = "0.0012"(starting zeros ignored).	
+anything.toLocaleString() : coverts an number into local number naming culture.
+                          example: let num=new Number(100000) num.toLocaleString(en-IN) is represented as 1,00,000 in indian standards, 100,000 in US standards use en-US.
+anything.valueOf(),anything.toExponential()    
 
 Math :
-  math properties : Math.PI etc
-  math methods : Math.sqrt() ,min(),max(),pow(),round(),log()
-  ceil() // max roundoff 4.4 = 5
-  floor() // min roundoff 4.9 = 4
-  abs() // it only returns value ex : abs(-5) = 5
-  random() // generates values between 0 and 1, like 0.1 or 0.231 
-  ...etc
+  
+math properties : Math.PI, Math.E etc
+math methods : Math.sqrt() ,min(),max(),pow(),round(),log(),exp()
+ceil() // max roundoff 4.4 = 5
+floor() // min roundoff 4.9 = 4
+abs() // it only returns value ex : abs(-5) = 5
+random() // generates values between 0 and 1(exclusive), like 0.1 or 0.231 
+trunc() : returns integer part of a float.
+etc
 
 Date and Time :
 	the time is calculated from 1 jan,1970 in milliseconds.
