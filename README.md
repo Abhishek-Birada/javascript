@@ -183,7 +183,25 @@ includes() : returns true or false, if the string is present or not in the strin
 			 	  console.log(myName.includes("abhi")) // true
 indexOf() : searches the string and returns the index of the first occurrence of the specified substring. return value : index or -1.
 lastIndexOf() : searches the string and returns the index of the last occurrence of the specified substring. return value : index or -1.
-replace() includes() padStart(finalstringlength,value) padEnd() repeat() replace() replaceAll() slice() split() split returns an array substring() toString() trim() trimStart() trimEnd() etc
+padStart(finalstringlength,value) : pads this string with a given string ,so that the resulting string has a given length. The padding is applied from the start of this string.
+padEnd(finalstringlength,value) : pads this string with a given string ,so that the resulting string has a given length. The padding is applied from the end of this string.
+repeat(count) : returns a new string which contains the specified number of copies of the string.
+replace(oldtext, newtext) : returns a new string, only the first occurrence will be replaced. The original string is left unchanged.
+replaceAll(oldtext, newtext) : returns a new string, all occurrence's will be replaced. The original string is left unchanged.
+slice(indexStart) or slice(indexStart, indexEnd-1) : it returns a new string by extracting a portion from the original string.
+split() : split's the string by using the separator and returns an array of strings.
+substring() : it returns a new string by extracting a portion from the original string.
+Feature	                          slice()	substring()
+Negative values	                    Yes	       No
+Swaps start & end if start > end	No	       Yes
+Works on arrays	                    Yes	       No (string only)
+toString() : returns a new string by converting the given input into string.
+trim() : removes whitespace's from both ends of this string and returns a new string, without modifying the original string.
+trimStart() : removes whitespace's from starting of the string and returns a new string, without modifying the original string.
+trimEnd() : removes whitespace's from ending of the string and returns a new string, without modifying the original string.
+match()
+search()
+etc
 
 Number :
 
