@@ -534,6 +534,8 @@ Map object : It stores key value pairs same as object.
         The name of the arguments can be anything, but their order cannot be changed.
         Return value of callback function is ignored.
         forEach only returns undefined.
+		we cannot use break,continue in forEach.
+		forEach accepts only synchronous function, it does not wait for promises.
 7.array.filter(callback function) or filter(callback function,this(optional):
      callback function - it can be arrow function or  anonymus function.
      The arguments of callback function are element, index,array.
@@ -554,7 +556,7 @@ Map object : It stores key value pairs same as object.
   	The name of the arguments can be anything, but their order cannot be changed.
    	reduce only returns an single value that is accumalator value.
     	the return value of callback function is stored in accumalator at every stage till the end of the array.
-    	if we specify the initialvalue, then the accumalator value at first will be initial value.
+    	if we specify the initialvalue and it can be anything, then the accumalator value at first will be initial value.
      	if we don't specify the initialvalue, then the accumalator value at first will be 0th index value and element will be pointing to 1st index value .
 
 overview of an class : class have{ 
