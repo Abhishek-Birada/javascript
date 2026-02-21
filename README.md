@@ -252,27 +252,70 @@ Date and Time :
 
 Arrays :
 
-collection of elements of same and mixed datatypes.
-syntax : let  arr = [1,2,3,4,5]
-	 let array = new Array(1,2,3,4,5)
-  	 console.log(arr) // [1,2,3,4,5]
-    	 arr[0] // 1
-    	 arr.length // 5
-    	arr.push(6) // adds element at last
-     	arr.pop() // removes last element
-      	arr.unshift(7) // adds element at first 
-        arr.shift() // removes first element
-	arr.includes(1) // true
- 	arr.indexOf(1) // 0
-       arr.concat(array) // adds two arrays and returns an concatenated array [1,2,3,4,5,1,2,3,4,5]
-       arr.join(array) // adds two arrays but returns an string with specified separator without square brackets 1,2,3,4,5,1,2,3,4,5
-       arr.slice(0,n-1) // ex : n=3 returns an array [1,2,3]
-       arr.splice(0,n) // n=3 returns an array [1,2,3,4] and it also changes the original array that is arr = [5]
-       // let a=[1,2,3] 
-       	  let b=[4,5] 
-	  let c=[a,b] // merging both arrays o/p  : [ [1,2,3] , [4,5]  ] , but if we want o/p as [1,2,3,4,5] use spread operator
-       let newArr = [...a,...b] // it merges both arrays '...' is spread operater
-       flat,isArray,from,of
+collection of elements of same or mixed datatypes.
+It's index starts from 0 and goes till length-1 for last element.
+syntax : use square brackets [] or use Array().
+Array() can be called with or without new keyword.
+Array() // [] empty array
+Array(element1)
+Array(element1, element2)
+Array(element1, element2,......elementN)
+Array(arrayLength)
+Note : if Array() has only one input and if that is a number, then it is considered as array length or else it is considered as array element.
+
+example : 
+let a = Array(1,2,3) // [1,2,3]
+let b = Array(3) // array of length 3, not array element
+let c = Array("abhi") // array containing single element ["abhi"]
+let  arr = [1,2,3,4,5]
+let array = new Array(1,2,3,4,5) // [1,2,3,4,5]
+
+arr[0] // accessing array element using index number, output : 1
+
+Array properties :
+arr.length // 5
+
+Array Methods : 
+
+Array.isArray() // determines whether the passed value is Array or not.( true or false)
+Array.of() // creates a new Array by input values.
+Note : The difference between Array.of() and the Array() is in handling single values, Array.of(7) creates an array with a single element 7, whereas Array(7) creates an empty array with a length of 7.
+Array.from() : creates a new array from passed value, it can be string or object or anything.
+arr.at(index) // returns the value at particular index.
+arr.push(6) // adds element at last
+arr.pop() // removes last element and returns removed element.
+arr.unshift(7) // adds element at first 
+arr.shift() // removes first element and returns removed element.
+arr.includes() // searches the element and returns true if present or else returns false.
+arr.indexOf() // searches the element and returns it's first occurence index or else returns -1.
+arr1.concat(arr2) // adds two arrays and returns a new array, original array does not change.
+arr.every( callback function ) : returns true, if every element satisfies the function condition or else returns false.
+arr.join() // returns a new string by adding all the elements of the array, separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the 		          separator and if array.length is 0, then empty string is returned.
+arr.slice(start,end-1) // returns a new array by extracting a portion of the original array.
+arr.splice(start, deleteCount, item1...) // inserts elements at start(index), if deletecount is 0, then it does not delete the element, else it deletes deleteCount number of elements.
+arr.toString() // converts all array elements into string, original array does not change.
+arr.sort() or sort(compareFn) : sorts the original array in ascending order.
+								it converts all the elements into string and then it compares their UTF-16 codes.
+								but to avoid this use callback function with a and b variables.
+								a represents first element and b represents second element.
+								if a-b > 0, then a comes after b
+								if a-b < 0, then b comes after a
+								a-b == 0, both are same.
+arr.some(callback) : returns true if any one element satisfies the function condition else false.
+arr.reverse() // reverse's the original array.
+arr.flat(depth)	: // it returns a new aray by flattening the original array, by default the depth is 1, depth can be 1,2.....Infinity.
+arr.flatMap(callbackFn) : internally it runs map() first, then flat() next.
+arr.find(callbackFn) : returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
+arr.findIndex(callbackFn) : returns the index of first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, -1 is returned.
+arr.findLast(callbackFn) : returns the first element in reverse order in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
+arr.findLastIndex(callbackFn) : returns the index of first element in reverse order in the provided array that satisfies the provided testing function. If no values satisfy the testing function, -1 is returned.
+...etc
+// let a=[1,2,3] 
+let b=[4,5] 
+let c=[a,b] // merging both arrays o/p  : [ [1,2,3] , [4,5]  ] , but if we want o/p as [1,2,3,4,5] use spread operator
+let newArr = [...a,...b] // it merges both arrays '...' is spread operater
+
+	   
 Object : symmbol for objects is {}
 	 An object is a collection of properties, and a property is an association between a name (or key) and a value. A property's value can be a function, in which case the property is known as a method.
 	 It stores key : value pairs 
