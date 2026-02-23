@@ -316,27 +316,62 @@ let c=[a,b] // merging both arrays o/p  : [ [1,2,3] , [4,5]  ] , but if we want 
 let newArr = [...a,...b] // it merges both arrays '...' is spread operater
 
 	   
-Object : symmbol for objects is {}
-	 An object is a collection of properties, and a property is an association between a name (or key) and a value. A property's value can be a function, in which case the property is known as a method.
-	 It stores key : value pairs 
-  	 syntax : let a = {} // o/p : {} this is empty object 
-    	         let b = new Object() // o/p : {} this is also an empty object 
-  	 Key and values cane be anything like variables , strings , numbers  etc let obj = { age : 10, "name" : 20, 0 : 30 }
-    	// accessing key from object 
-    	 obj.age // 10 or obj["age" or 'age'] // 10
-      // adding new key from outside
-      obj.surname = "biradar"
-      // changing values of the keys
-      obj.age  = 22
-      let a={1:2} 
-       	  let b={2:3} 
-	  let c={a,b} // merging both objects o/p  : { {1:2} , {2:3}  } , but if we want o/p as {1:2,2:3} use spread operator
-	 let newobj = {...a,...b}
+Object : 
 
-  Functions :
-     function functionName( arguments  ){
+symbol for object is {}
+It stores key : value pairs
+Key and values can be anything like variables , strings , numbers etc
+An object is a collection of properties and methods.
+Example : let a = {} // empty object 
+we can also create an object by using object(). It can be called with or without using new keyword.
+Example : 
+let obj1 = new Object() or new Object(value)
+let obj2 = Object() or Object(value)
+Whatever the value is passed inside the Object(), it creates object of that type.
+Note : If the value is null or undefined, it creates and returns an empty object.
 
-     }
+let obj = { age : 10, "name" : 20, 0 : 30 }
+
+accessing key from object 
+obj.age // 10 
+or
+obj["age" or 'age'] // 10
+
+adding new key from outside
+obj.surname = "biradar"
+
+changing values of the keys
+obj.age  = 22
+
+Object methods :
+
+Object.assign() : It copies all properties from one or more objects to the target object. If only one value is passed, then it will convert it into object.
+   				  syntax : Object.assign(target, source1, source2,.....sourceN)   
+Object.create() : creates a new object, using an existing object.
+				  Example : const newObj = Object.create(oldObj)
+Object.entries(obj) : returns an array of arrays, where each array has key-value pair.
+Object.freeze(obj) : It freezes an object. so that new properties cannot be added or existing properties cannot be removed and the object's prototype cannot be re-assigned. 
+				  syntax : Object.freeze(obj)
+Object.fromEntries() : transforms a list of key-value pairs into an object. It performs the reverse of Object.entries().
+Object.keys(obj) : returns an array of stringed key names.
+Object.values(obj) : returns an array of property values.	  
+Object.hasOwn() : returns true, if the mentioned property is its own property. If the property is inherited, or does not exist returns false.
+	  			  syntax : Object.hasOwn(obj, property)
+Object.isFrozen() : returns true, if an object is frozen, else returns false..
+hasOwnProperty() : returns true, if the mentioned property is its own property. If the property is inherited, or does not exist returns false.
+	  			   syntax : objectName.hasOwn(property)
+...etc
+	  
+let a={1:2} 
+let b={2:3} 
+let c={a,b} // merging both objects o/p  : { {1:2} , {2:3}  } , but if we want o/p as {1:2,2:3} use spread operator
+let newobj = {...a,...b}
+
+Functions :
+
+function functionName( arguments  ){
+
+}
      functionName(parameters)
 
      function print( ){
