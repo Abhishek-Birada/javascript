@@ -382,76 +382,156 @@ let b={2:3}
 let c={a,b} // merging both objects o/p  : { {1:2} , {2:3}  } , but if we want o/p as {1:2,2:3} use spread operator
 let newobj = {...a,...b}
 
-Functions :
+Functions : A set of statements that performs a particular task.
+
+syntax :
 
 function functionName( arguments  ){
 
 }
-     functionName(parameters)
+functionName(parameters)
 
-     function print( ){
+Example : 
+     
+function print( ){
 	console.log("abhishek")
-     }
-     print() // this function prints only name, it doesn't return any value
+}
+print() // this function prints only name, it doesn't return any value
 
-     function print( ){
-	console.log("abhishek")
-     }
-     let result = print() // here also the function prints only name, it doesn't return any value. If we print result ,its value will be undefined
-     function print( ){
+let result = print() // here also the function prints only name, it doesn't return any value. If we print result ,its value will be undefined
+     
+function print( ){
 	return "abhishek"
-     }
-     let result = print() // here the function  return a value and it's stored in a variable. If we print result ,its value will be abhishek
+}
+let result = print() // here the function  return a value and it's stored in a variable. If we print result ,its value will be abhishek
 
-     // if we want to send multiple arguments at once. we use rest operator.
-     example : function print( ...num ){
-	     return num
-     }
-    console.log( print(1,2,3)) // it returns an array [1,2,3] here num becomes an array
+Example :
+function print(a,b){
+    console.log(`${a} ${b}`);
+}
+print(10);
+output : 10 undefined
 
-    
+function print(a,b=20){
+    console.log(`${a} ${b}`);
+}
+print(10);
+output : 10 20
+
+// if we want to send multiple arguments at once. we use rest operator.
+example : function print( ...num ){
+	     	return num
+     	  }
+          console.log( print(1,2,3)) // it returns an array [1,2,3], here num becomes is an array
+		  
+arguments object :
+
+example : function print(){
+	     	return arguments;
+     	  }
+          console.log(print(1,2,3)) // [Arguments] { '0': 1, '1': 2, '2': 3 }
     
 Anonymus Function : A function without function name. 
 Example : let ans = function (){
-		    console.log("heelo")
+		    console.log("hello")
+          }
+console.log(ans) 
+// output : 
+function (){
+	console.log("hello")
 }
-console.log(ans) // output : function (){
-		                 console.log("heelo")
-				}
+
 console.log(ans())  // hello  
 
 Hoisting : calling the function before its creation.
- Example :
- print()
- function print( ){
+Example :
+print()
+function print( ){
 	console.log("abhishek")
- } 
- o/p : abhishek
- But hoisting is not possible with anonymous function, it will generate an error.
- print()
- let print = function ( ){
-	console.log("abhishek")
- }
+} 
+o/p : abhishek
+
+Note : But hoisting is not possible with anonymous function, it will generate an error.
+print()
+let print = function ( ){
+				console.log("abhishek")
+			}
  o/p : Error
 
  Arrow Function : () => {}
+ 
  example : let ans = (a,b) =>{ return a+b } // explicit return
  console.log(ans(2,3)) // 5
  console.log(ans) // (a,b) =>{ return a+b }
 
  let ans = (a,b) => a+b  // implicit return , no need to write return if there is only one line of code
  						or
-let ans = (a,b) => (a+b)  // implicit return , no need to write return if there is only one line of code
+let ans = (a,b) => (a+b)  // implicit return , no need to write return if the code is in ()
 
- this keyword : this refers to current object and it is used inside the object.
- 		if we print only this, then it refers to an empty object = { } in node environment.
-   		But in browser, this refers to global object that is Window{}
+Note : But hoisting is not possible with arrow function, it will generate an error.
+	   Arrow function does not have it's own this, arguments object etc.
 
-IIFE : imediately invoked function expression
+Method shorthand :
+
+example : 
+a() {
+  console.log('hi');
+}
+a() // error
+
+But, it is allowed inside an object or class.
+example1 :
+const obj = {
+  			  a() {
+    			console.log('hi');
+  			  }
+		    };
+obj.a(); // hi
+
+example2 :
+class Test {
+  a() {
+    console.log('hi');
+  }
+}
+const t = new Test();
+t.a(); // hi
+
+IIFE : imediately invoked function expression ()()
        it is used to get rid of global pollutants.
-       (function creation it can be normal function or anonymus function or arrow function)(parameters);
+       (normal function or anonymus function or arrow function)(parameters);
        ex : let a = ( function (name){ return name })('abhishek');
        		console.log(a) // abhishek
+
+Closures : A closure is created when a function “remembers” the variables from its outer scope, even after that outer function has finished executing.
+
+example :
+function outer() {
+  let count = 0;
+
+  function inner() {
+    count++;
+    console.log(count);
+  }
+
+  return inner;
+}
+
+const counter = outer();
+
+counter(); // 1
+counter(); // 2
+counter(); // 3
+
+Higher order function :
+
+A higher order function is a function that takes another function as an argument or returns another function.
+example : above closure example or map(),filter(),reduce(),forEach() etc, these functions take callback function as an argument.
+
+this keyword : this refers to current object and it is used inside the object.
+ 		if we print only this, then it refers to an empty object = { } in node environment.
+   		But in browser, this refers to global object that is Window{}
+		
 Operators :
 
  1. Arithmetic operators : +, -, *, /, %, **(exponentiation), ++(increment){ pre ++, post ++ }, --(decrement){ pre --, post -- }
