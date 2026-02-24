@@ -350,8 +350,8 @@ Object.assign() : It copies all properties from one or more objects to the targe
 Object.create() : creates a new object, using an existing object.
 				  Example : const newObj = Object.create(oldObj)
 Object.entries(obj) : returns an array of arrays, where each array has key-value pair.
-Object.freeze(obj) : It freezes an object. so that new properties cannot be added or existing properties cannot be removed and the object's prototype cannot be re-assigned. 
-				  syntax : Object.freeze(obj)
+Object.freeze(obj) : It freezes an object. so that new properties cannot be added or existing properties cannot be removed and the object's properties and prototype                      cannot be re-assigned. 
+				     syntax : Object.freeze(obj)
 Object.fromEntries() : transforms a list of key-value pairs into an object. It performs the reverse of Object.entries().
 Object.keys(obj) : returns an array of stringed key names.
 Object.values(obj) : returns an array of property values.	  
@@ -360,8 +360,23 @@ Object.hasOwn() : returns true, if the mentioned property is its own property. I
 Object.isFrozen() : returns true, if an object is frozen, else returns false..
 hasOwnProperty() : returns true, if the mentioned property is its own property. If the property is inherited, or does not exist returns false.
 	  			   syntax : objectName.hasOwn(property)
+Object.seal(obj) : It's same as freeze, but it allows us to reassign the values of properties of an object.
+Object.defineProperty() : This method defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
+						  syntax : Object.defineProperty(obj, prop, descriptor)
+						  descriptor are of two types and the descriptor can be only any one of them, They are : 
+						  1. data descriptor : value,
+						                       writable(can we change the value or not),
+											   enumerable(can we acces the property in loop or not),
+											   configurable(can we delete the property or not)
+						  					   Example : let obj={a:10}
+											   			 Object.defineProperty(obj, "b", { value: 20,writable: true,enumerable: true,configurable: true,});
+														 console.log(obj.b) // 20
+						  2. accessor descriptor : get() and set() methods.
+Object.getOwnPropertyDescriptor(obj,"property") : returns an object, describing the configuration of a specific property on a given object . The object returned is 													mutable but mutating it has no effect on the original property's configuration.
 ...etc
-	  
+delete keyword is used to delete a specific property in an object.
+Example : let obj={a:10}
+		  delete obj.a
 let a={1:2} 
 let b={2:3} 
 let c={a,b} // merging both objects o/p  : { {1:2} , {2:3}  } , but if we want o/p as {1:2,2:3} use spread operator
