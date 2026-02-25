@@ -693,4 +693,91 @@ overview of an class : class have{
 				variables/properties/attrributes
     				functions/methods/behaviour
                        }
+
+Destructuring in JavaScript
+
+Destructuring is a convenient way to extract values from arrays or objects and assign them to variables in a cleaner way.
+
+1️. Array Destructuring
+
+Basic Example
+
+const numbers = [10, 20, 30];
+const [a, b, c] = numbers;
+console.log(a); // 10
+console.log(b); // 20
+console.log(c); // 30
+
+Skipping Values
+
+const [first, , third] = numbers;
+console.log(third); // 30
+
+Default Values
+
+const [x = 5, y = 10] = [1];
+console.log(x); // 1
+console.log(y); // 10
+
+Rest Operator
+
+const [head, ...tail] = [1, 2, 3, 4];
+console.log(head); // 1
+console.log(tail); // [2, 3, 4]
+
+2️. Object Destructuring : In object destructuring, the variable name must match the property name in the object.
+
+Basic Example
+const user = {
+  name: "Alice",
+  age: 25
+};
+
+const { name, age } = user;
+console.log(name); // Alice
+console.log(age);  // 25
+
+Renaming Variables
+
+const { name: userName } = user;
+console.log(userName); // Alice
+
+Default Values
+
+const { country = "USA" } = user;
+console.log(country); // USA
+
+Nested Destructuring
+
+const person = {
+  id: 1,
+  address: {
+    city: "New York",
+    zip: 10001
+  }
+};
+
+const { address: { city } } = person;
+console.log(city); // New York
+
+3️. Destructuring in Function Parameters
+
+function greet({ name, age }) {
+  console.log(`Hello ${name}, age ${age}`);
+}
+greet({ name: "Bob", age: 30 });
+
+With default values:
+
+function greet({ name = "Guest" } = {}) {
+  console.log(`Hello ${name}`);
+}
+
+4️. Swapping Variables (Common Trick)
+
+let a = 1;
+let b = 2;
+[a, b] = [b, a];
+console.log(a); // 2
+console.log(b); // 1
   	
