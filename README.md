@@ -621,42 +621,33 @@ Map object : It stores key value pairs same as object.
 	     map.values() returns an object of all the values.
              map.has(key) returns true or false based on if key is present in the map or not.
 4.for of loop : It is used to get values.
-	syntax : for(iterator of iterable){
- 
-	            }
-	example : let arr = [1,2,3,4,5]
- 		  for(let i of arr){
-     			console.log(i)
-		  }
-    		o/p : 1 2 3 4 5
-      		let map = new Map()
-		a.set(0,1)
-  		a.set(1,2)
-    		for(let [i] of map ){ [i] this is syntax for maps
-      			console.log(i) // 0,2
-		}
-  		for(let [,i] of map ){ [i] this is syntax for maps
-      			console.log(i) // 1,2
-		}
-  		for(let [i,j] of map ){ [i] this is syntax for maps
-      			console.log(i,j) // 0 1  1 2
-		}
-     itrerables can be array,string,map but not object,because object is not iterable.
-5.for in loop : It is used to get keys. 
-		keys of array are indexs.
-  		here we can use objects but not maps.
-    		let arr = [1,2,3,4,5]
- 		  for(let i in arr){
-     			console.log(i)
-		  }
-    		o/p : 0 1 2 3 4 // here indexs are considered as keys
-      		let obj = { name : 'abhi',age : 22 }
-		for(let i in obj){
-  			console.log(i) // name age are keys
-		}
-  		for(let i in obj){
-  			console.log(obj[i]) // 'abhi' 22
-		}
+                syntax : for(iterator of iterable){
+                         }
+	            example : let arr = [1,2,3,4,5]
+ 		                  for(let i of arr){
+     			               console.log(i)
+		                  }
+    		              o/p : 1 2 3 4 5
+Note : itrerables can be array,string,map but not object, because object is not iterable. so use Object.keys(), Object.values(), or Object.entries() with objects for looping.
+5.for in loop : It is used to get keys or index's. 
+                syntax : for(iterator in iterable){
+                         }
+	            example : let arr = [1,2,3,4,5]
+ 		                  for(let i in arr){
+     			              console.log(i)
+		                  }
+    		             o/p : 0 1 2 3 4 // here indexs are considered as keys
+      		             let obj = { name : 'abhi',age : 22 }
+		                 for(let i in obj){
+  			                   console.log(i) // name age are keys
+		                 }
+  		                 for(let i in obj){
+  			                   console.log(obj[i]) // 'abhi' 22
+		                 }
+Use for...of for Arrays, Strings, Maps, Sets
+Use for...in for Objects
+Avoid for...in for arrays (can cause bugs)
+
 6.forEach( callback function) or forEach( callback function,this(optional)) : 
 	foreach is generic method used to perform operations
 	callback function - it can be arrow function or  anonymus function.
@@ -780,4 +771,86 @@ let b = 2;
 [a, b] = [b, a];
 console.log(a); // 2
 console.log(b); // 1
-  	
+
+important :
+why do we assign {} in function or object ?
+If nothing is passed, just use an empty object instead.
+example : 
+
+function greet({ name }) {
+  console.log(name);
+}
+greet(); // ERROR
+
+Why?
+Because when you call : greet()
+JavaScript tries to do : const { name } = undefined;
+And you cannot destructure undefined or null.
+
+Why We Assign = {}
+
+function greet({ name } = {}) {
+  console.log(name);
+}
+
+Now when you call : greet()
+
+It becomes:
+const { name } = {};
+And destructuring {} is safe.
+Result : undefined
+
+Nested Objects :
+
+const user = {};
+const { profile: { name } } = user; // ERROR
+Because : user.profile === undefined
+So JS tries to do : const { name } = undefined;
+
+correct way :
+
+const user = {};
+const { profile: { name } = {} } = user;
+console.log(name); // undefined
+Now if profile doesn't exist, it defaults to {}.
+
+
+Strict Mode in JavaScript :
+
+Strict Mode is a way to a safer, stricter version of JavaScript.
+It helps you catch common mistakes and prevents unsafe behavior.
+You enable it by adding : "use strict";
+
+Strict mode changes:
+
+Feature	               Normal Mode	   Strict Mode
+Undeclared variable	  Becomes global	Error
+this in function	  Global object	    undefined
+Primitive this	          Boxed	        Not boxed
+arguments linking	     Linked	        Not linked
+Silent errors	         Ignored	        Throw error
+
+Important:
+Classes are always in strict mode. Even if you don’t write "use strict".
+You cannot delete variables in strict mode.
+Duplicate parameter names not allowed in strict mode.
+Arrow function inherits this from surrounding function.
+Duplicate Object Keys is allowed now (last one wins). Error in old versions.
+
+
+Hoisting :
+
+Declaration: creates the variable name in memory (but doesn’t necessarily give it a value yet).
+Initialization/assignment: actually gives the variable a value.
+Hoisting in JavaScript is the behavior where declarations (not initializations) are conceptually moved to the top of their scope before code execution. This can make variables and functions accessible earlier than they appear in the code.
+
+Key Points About Hoisting :
+
+Function Declarations: Fully hoisted. You can call a function before it’s defined.
+var Declarations: Hoisted but initialized with undefined. You can reference them before declaration, but they won’t hold a value yet.
+let and const Declarations: Hoisted but remain in the Temporal Dead Zone (TDZ) until initialized. Accessing them before declaration throws a Reference Error.
+
+Initializations are NOT hoisted, only the declaration part is.
+var gives you undefined before assignment.
+let and const are hoisted but inaccessible until declared (TDZ).
+Functions declared with function are fully hoisted.
