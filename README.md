@@ -34,15 +34,16 @@ alert(message): pops up a alert box.
 variables in js :
 A variable is a name given to a memory location in a computer’s memory. It is used to store data that can be changed during program execution.
 constant(const) : constant variables value cannot be changed after assigning a value to it.
-	              we cannot reassign new value to const variable.
+	               variables created by const keyword cannot be redeclared and reassigned.
     	          But we can update the values of array or object,like adding new element to array or key to object.
 				  in short, the space is fixed not the value in the space.
 example : const myName = "abhishek" 
           myName="abhi" // error
-let : variables value can be changed after assigning a value to it.
+let : variables created by let keyword cannot be redeclared in the same scope, but we can reassign the value of the variable.
 example : let myName = "abhishek"
            myName="abhi" // no error
 var :  var is not used commonly because of it's issue in block scope and functional scope. var was widely used in older version's of javascript.
+	   variables created by var keyword can be redeclared and we can reassign the value of the variable.
 nothing : No keyword is used for defining a variable here.
 Example :  myName="abhi" // no error
 good practice : use const more instead of let.
@@ -343,6 +344,8 @@ obj.surname = "biradar"
 changing values of the keys
 obj.age  = 22
 
+Inside an object, every function must be assigned to a key (property name).
+
 Object methods :
 
 Object.assign() : It copies all properties from one or more objects to the target object. If only one value is passed, then it will convert it into object.
@@ -418,6 +421,15 @@ function print(a,b=20){
 print(10);
 output : 10 20
 
+Parameters are the variables listed in the function definition.
+Arguments are the actual values passed to the function when calling it.
+
+function add(a, b) {   // a and b → parameters
+  return a + b;
+}
+
+add(5, 10);            // 5 and 10 → arguments
+
 // if we want to send multiple arguments at once. we use rest operator.
 example : function print( ...num ){
 	     	return num
@@ -469,7 +481,9 @@ let print = function ( ){
 let ans = (a,b) => (a+b)  // implicit return , no need to write return if the code is in ()
 
 Note : But hoisting is not possible with arrow function, it will generate an error.
-	   Arrow function does not have it's own this, arguments object etc.
+	   Arrow function does not arguments object.
+	   Arrow functions does not have their own this, they inherit this from the outer scope or surroundings.
+
 
 Method shorthand :
 
@@ -647,6 +661,8 @@ Note : itrerables can be array,string,map but not object, because object is not 
 Use for...of for Arrays, Strings, Maps, Sets
 Use for...in for Objects
 Avoid for...in for arrays (can cause bugs)
+
+callback function : A function which is passed as an argument to another function is called as callback function.
 
 6.forEach( callback function) or forEach( callback function,this(optional)) : 
 	foreach is generic method used to perform operations
