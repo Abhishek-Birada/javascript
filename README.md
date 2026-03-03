@@ -870,3 +870,153 @@ Initializations are NOT hoisted, only the declaration part is.
 var gives you undefined before assignment.
 let and const are hoisted but inaccessible until declared (TDZ).
 Functions declared with function are fully hoisted.
+
+
+new keyword :
+
+The new keyword in JavaScript is used to create an instance (object) from a constructor function or class.
+It tells JavaScript : “Create a new object based on this constructor.”
+
+JavaScript does 4 things behind the scenes :
+1️. Creates a new empty object by using new keyword
+2️. links the empty object's prototype to constructor function prototype
+3️. Sets this to the new object
+4️. Returns the new object automatically
+
+what is prototype ?
+prototype is an Object.
+
+constructor :
+
+A special function/method that runs automatically when a new object is created, used to initialize object properties.
+It sets up the initial properties and values when a new object is created.
+There are two main ways constructors are used in JavaScript:
+
+1️. Constructor Function (Traditional Way)
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const user1 = new Person("Alice", 25);
+console.log(user1.name); // Alice
+
+2️. Constructor in a Class (Modern Way - ES6)
+With ES6 classes, the constructor is a special method named constructor.
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+const user1 = new Person("Alice", 25);
+console.log(user1.age); // 25
+
+Important rules:
+A class can have only one constructor.
+The constructor runs automatically when you use new.
+If you don’t define one, JavaScript provides a default empty constructor.
+
+
+What Happens Without new ?
+
+function Person(name) {
+  this.name = name;
+}
+
+const user = Person("Alice"); // missing new
+
+Without new:
+here we are ony calling the Person function and it's not returning anything and user is not an object.
+this may refer to the global object (or undefined in strict mode)
+It can cause bugs
+
+
+Factory Function (No new) :
+
+function createPerson(name) {
+  return {
+    name, // shortcut for name=name
+    sayHello() {
+      return "Hello " + name;
+    }
+  };
+}
+
+const user2 = createPerson("Bob");
+No new and No this in above code.
+
+Note : usually don’t use new for String, Number, and Boolean, because new creates an object, not a primitive.
+
+
+is it mandatory to use prototype in constructor to write methods ?
+No, it is not mandatory to use prototype to write methods in a constructor.
+But using prototype is usually better for memory efficiency.
+
+Option 1: Method Inside Constructor (No prototype)
+function Person(name) {
+  this.name = name;
+
+  this.sayHello = function () {
+    return "Hello " + this.name;
+  };
+}
+
+const user1 = new Person("Alice");
+const user2 = new Person("Bob");
+
+What happens?
+Each time you create a new object, a new copy of sayHello is created.
+user1.sayHello !== user2.sayHello
+That means more memory usage.
+
+Option 2: Method on Prototype (Recommended)
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.sayHello = function () {
+  return "Hello " + this.name;
+};
+
+const user1 = new Person("Alice");
+const user2 = new Person("Bob");
+
+What happens?
+Only one copy of sayHello exists.
+All objects share it.
+user1.sayHello === user2.sayHello
+More memory efficient 
+
+
+Prototypal Inheritance in JavaScript :
+
+Prototypal inheritance means that objects can inherit properties and methods from other objects through the prototype chain.
+In JavaScript, inheritance is based on objects inheriting from objects, not classes (even though we use class syntax).
+
+Every object in JavaScript has an internal link to another object called its prototype.
+
+When you try to access a property:
+
+JavaScript checks the object itself.
+If not found, it checks its prototype.
+If still not found, it checks the prototype’s prototype.
+This continues until null.
+This is called the prototype chain.
+
+example : check 14th file of cohort or explore on internet.
+
+
+What is a Polyfill in JavaScript?
+A polyfill is writing our code for newer JavaScript features in older browsers that don’t support them.
+
+
+
+
+
+
+
+
+
