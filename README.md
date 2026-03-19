@@ -85,7 +85,9 @@ String : It is collection of characters enclosed in single or double quotes and 
 Example : let name = "Abhishek"
 string+string = string
 string+number=string
-except + all other operators like -,*,/,%,** result in number with string
+except +, all other operators like -,*,/,%,** result in number with string
+In js, + behaves differently with string, that means it converts the other operand into string.
+whereas other operators, try to convert the string into number.
 ex : 'abhi'+'shek'='abhishek'
      'abhi'+4 = 'abhi4'
      '123'+4 = '1234'
@@ -124,6 +126,26 @@ Symbol	           "symbol"
 array              "object"
 object             "object"
 function           "function"
+
+100000 can be written as 1_00_000, it's just a syntactic sugar or a way of writing in js.
+
+e stands for 10
+ex : 2e2 // 2*10^2 == 2*100 == 200
+ex : 2e-2 // 2*10^(-2) == 2/100 == 0.02
+
+octal number : base 8 and numbers from 0 to 7
+ex : 0o2
+
+hexadecimal number : base 16 and numbers from 0 to 15 ( 10 to 15 are represented from A to F)
+ex : 0x123f
+
+binary number : base 2 and numbers from 0 to 1
+ex : 0b111
+
+
+In JavaScript, non-primitive values are stored and copied by reference (pointer to address ).
+When you assign or pass them, the reference (memory address) is copied, not the actual object.
+
 Non Primitive Datatypes : Arrays, objects, functions etc // Non Primitive Datatypes are passed as reference that means if we change value of one variable the value also gets changed in another variable unlike primitive datatypes . example : let a = 10
 				let b = a // b = 10
     				b = 9 // here b value changes but a value doesn't change 
@@ -141,6 +163,12 @@ Backticks : ` `
 example : let name = "abhi"
 	  let age = 22
 	  console.log(` my name is ${name} and I am ${age} years old `) // instead of "my name is" + name + "and I am" +age+ "years old"
+
+escaping character is \ this backslash escapes the next character.
+ex : "my name is \"abhishek\" "
+o/p : my name is "abhishek"
+
+if we use template literal ( ` ` ), the way we write the string, the output string is also same and no need to use \n, \t etc special characters in template literal. 
 
 naming convension : pascal case : first letter of every word should be capital. example : Abhishek or AbhishekBiradar // this convension is used for class names
 camel case : except first word, first letter of other words should be capital example : abhishek or abhishekBiradar // this convension is used for variables,method names etc
@@ -233,6 +261,9 @@ anything.toLocaleString() : coverts an number into local number naming culture.
                           example: let num=new Number(100000) num.toLocaleString(en-IN) is represented as 1,00,000 in indian standards, 100,000 in US standards use en-US.
 anything.valueOf(),anything.toExponential()    
 
+Note : whenever we use dot(.) on primitive's then a object is created which is wrapper around the primitive.so that we can use all useful
+	   properties and methods on the primitive.
+
 Math :
   
 math properties : Math.PI, Math.E etc
@@ -321,7 +352,6 @@ Object :
 
 symbol for object is {}
 It stores key : value pairs
-Key and values can be anything like variables , strings , numbers etc
 An object is a collection of properties and methods.
 Example : let a = {} // empty object 
 we can also create an object by using object(). It can be called with or without using new keyword.
@@ -345,6 +375,44 @@ changing values of the keys
 obj.age  = 22
 
 Inside an object, every function must be assigned to a key (property name).
+
+In JavaScript, object keys can only be of two main types internally :
+String
+Symbol
+However, when you use other types, JavaScript automatically converts them to strings.
+values can be anything like variables , strings , numbers etc
+always use trailing comma for last key value pair. its good practice.
+
+let obj = {
+  name: "John",
+  age: 25
+};
+console.log(obj.name); // John
+
+Internally:
+"name" → string
+"age"  → string
+
+Even numeric keys become strings.
+
+let obj = {
+  1: "one",
+  2: "two"
+};
+console.log(obj["1"]); // one
+
+Here:
+1 → "1"
+2 → "2"
+
+If an object contains only integer's as  keys ( by the way they automatically get converted into string internally).
+Now when we print the keys they will be printed in sorted order, it's java script behaviour.
+
+in operator :
+
+ex : let myObject = inserting( "abhishek", 24);
+     console.log( name in myObject ); // true 
+
 
 Object methods :
 
@@ -622,18 +690,7 @@ o/p : 0
       2
       you skipped printing 3 by using continue
       4
-Map object : It stores key value pairs same as object.
-	     But the insertion order of keys is remembered by map and object doesnt remember insertion order of keys.
-      	     Map only inserts unique keys unlike object.
-	     syntax : let map = new Map()
-     	     map.set(key,value) is used to insert key and value pairs in map.
-             map.get(key) is used to get the value of the key.
-	     map.size property is used to get the size of the map.
-      	     map.delete(key) removes a particular key from the map.
-	     map.clear() removes all the key value pairs from the map.
-      	     map.keys() returns an object of  all the keys.
-	     map.values() returns an object of all the values.
-             map.has(key) returns true or false based on if key is present in the map or not.
+
 4.for of loop : It is used to get values.
                 syntax : for(iterator of iterable){
                          }
@@ -695,13 +752,33 @@ callback function : A function which is passed as an argument to another functio
     	the return value of callback function is stored in accumalator at every stage till the end of the array.
     	if we specify the initialvalue and it can be anything, then the accumalator value at first will be initial value.
      	if we don't specify the initialvalue, then the accumalator value at first will be 0th index value and element will be pointing to 1st index value .
+example :
+
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0);
+console.log(sum); // 10
+
+What actually happens step-by-step :
+
+Iteration	accumulator	currentValue	returned value	next accumulator
+1	           0	             1	           1	              1
+2	           1	             2	           3	              3
+3	           3	             3	           6	              6
+4	           6	             4	          10	             10
+
+The value you return becomes the accumulator for the next iteration.
+So:
+accumulator + currentValue → just computes
+return accumulator + currentValue → stores it as the next accumulator
 
 overview of an class : class have{ 
 				variables/properties/attrributes
     				functions/methods/behaviour
                        }
 
-Destructuring in JavaScript
+Destructuring in JavaScript :
 
 Destructuring is a convenient way to extract values from arrays or objects and assign them to variables in a cleaner way.
 
@@ -890,6 +967,9 @@ constructor :
 
 A special function/method that runs automatically when a new object is created, used to initialize object properties.
 It sets up the initial properties and values when a new object is created.
+Before ES6, JavaScript only had constructor functions, not the class syntax.
+Even modern classes are still syntactic sugar over constructor functions.
+
 There are two main ways constructors are used in JavaScript:
 
 1️. Constructor Function (Traditional Way)
@@ -938,7 +1018,7 @@ Factory Function (No new) :
 
 function createPerson(name) {
   return {
-    name, // shortcut for name=name
+    name, // instead of writing : name : name
     sayHello() {
       return "Hello " + name;
     }
@@ -1013,10 +1093,271 @@ What is a Polyfill in JavaScript?
 A polyfill is writing our code for newer JavaScript features in older browsers that don’t support them.
 
 
+garbage collection : it's done automatically in java scrpit. It cleans unreachable things.
+
+ex : let obj={ name : 'abhishek",
+		age : 23,
+	}
+
+here this part { name : 'abhishek",
+		age : 23,
+	     } 
+is reachable by using obj variable.
+
+obj=null;
+here this part { name : 'abhishek",
+		age : 23,
+	     } 
+is not reachable by using obj variable.so that is cleaned by garbage collector.
 
 
+optional chaining : it's new and cleaner way to access nested object property value.
+		    if the property is present then it returns it's value or it returns undefined.
+		    it is represented by ( ?. )
+ex : let obj={ name : 'abhishek",
+		age : 23,
+		address : { pincode : 500018,
+			    city : HYD,
+			    locality : Moti Nagar,
+	     }
+console.log(obj.address?.city); // HYD is printed
 
 
+Map :
+
+map object is similar to normal object, but the difference is that here the key can be of any type, whereas in object the key can be symbol or string.
+
+map allows only unique key's, if a key is repeated, then the latest key is considered.
+insertion order of keys is preserved.
+ 
+1. creating a map object
+
+ex : let map = new Map();
+
+2. set(key,value) : it set's key - value pair in the map object.
+
+ex : map.set('name',"abhishek");
+
+3. get(key) : it gets the value of a key from the map object.
+
+ex : map.get('name'); // "abhishek"
+
+4. size : this gives the size of number of key-value pairs in map object.
+
+ex : map.size; // 1
+
+5. clear() : it clears all the key - value pairs from the map object.
+
+ex : map.clear();
+     map.size; // 0
+
+6. has() : this method is used for checking whether an key is present in map or not.
+
+ex : map.has('name'); // true
+
+7. delete() : this method is used for deleting an particular key.
+
+ex : map.delete('name');
+
+keys() gives an map iterator, values() gives an map iterator etc
+
+iterator is an object
+iterator has all the elements
+we can only access one element at a time.
+iterator also has an next() method, which returns an object.
+the returned object has a value property which has the current element and it also has done property which has true or false value.
+
+ex : let it = map.keys();
+console.log(it.next().value); // "name"
+
+Iterability : object that has Symbol.iterator method and can be looped via iteration protocols (for...of, spread, etc.), but not all loops count.
+In JavaScript, objects are broadly divided into iterables and non-iterables.
+
+An object is iterable if it implements the Symbol.iterator method. This method must return an iterator - an object with a next() method that tells JavaScript how to get the next value.
+
+Common iterables
+
+Arrays → [1, 2, 3]
+Strings → "hello"
+Maps → new Map()
+Sets → new Set() ...etc
+
+Non-Iterables
+
+These do NOT have Symbol.iterator method by default. If we want to make them iterable we should implement Symbol.iterator method in them.
+
+Common non-iterables
+
+Plain objects
+null
+undefined
+weakest
+weakmap ...etc
 
 
+set :
 
+set object stores only unique values in it.
+
+1. creating a set object
+
+ex : let set = new Set();
+
+2.add() : inserts the value in the set.
+3.clear() : clears all the elements from the set.
+4.delete() : it delete's specified value from the set.
+5.difference() : it returns an set with difference values.
+                 ex : set1.difference(set2); // unique values in set1 are returned.
+6.has() : returns a boolean value, if the specified value exists in this Set or not.
+7.intersection() : it returns a set of similar values between two sets.
+                   ex : set1.intersection(set2);
+8.isDisjointFrom() : takes a set and returns a Boolean value if this set has no elements in common with the given set.
+                    ex : set1.isDisjointFrom(set2);
+9.isSubsetOf() : takes a set and returns a boolean value if all elements of this set are in the given set.
+		ex : set1.isSubsetOf(set2);
+10.keys() and values() : both the methods are same and returns an iterator for values of the set.
+11. union() : it returns an set of unique values present in both sets.
+12. size : this property returns the size of the set.
+...etc
+
+
+WeakMap :
+
+A WeakMap is like a Map.
+Keys must be objects (no primitives)
+Keys are weakly referenced -> can be garbage collected
+
+Example : 
+
+const wMap = new WeakMap();
+
+let obj = { name: "John" };
+
+wMap.set(obj, "some data");
+
+console.log(wMap.get(obj)); // "some data"
+
+Key Feature : Weak Reference
+
+let obj = { name: "John" };
+
+const wm = new WeakMap();
+wm.set(obj, "data");
+
+// remove reference
+obj = null;
+
+Now the original object has no references
+It becomes eligible for garbage collection
+The entry in WeakMap is automatically removed (eventually)
+whereas the entry in Map is not removed
+
+Allowed Keys
+
+const wm = new WeakMap();
+
+wm.set({}, "ok");      // allowed
+wm.set([], "ok");      //  allowed
+wm.set(() => {}, "ok");//  allowed
+
+wm.set(1, "no");       //  Error
+wm.set("key", "no");   //  Error
+
+-> Only objects are valid keys
+
+Only Methods of WeakMap 
+
+wm.set(key, value);    // add/update
+wm.get(key);           // get value
+wm.has(key);           // check existence
+wm.delete(key);        // remove entry
+
+wm.size        //  not available
+wm.keys()      // not available
+wm.values()    // not available
+wm.entries()   // not available
+for...of       //  not iterable
+
+
+WeakMap vs Map
+
+Feature	            Map 	WeakMap 
+
+Key types	        Any	       Only objects
+Garbage collection  No	       Yes (automatic)
+Iterable	        Yes	       No
+Size property	    Yes	       No
+
+
+WeakSet :
+
+A WeakSet is a collection of unique objects, where:
+
+Only objects are allowed (no primitives)
+Objects are weakly referenced (can be garbage collected)
+Values are unique (like Set)
+
+Example
+
+const ws = new WeakSet();
+
+let obj1 = { name: "A" };
+let obj2 = { name: "B" };
+
+ws.add(obj1);
+ws.add(obj2);
+
+console.log(ws.has(obj1)); // true
+
+Weak Reference Behavior
+
+let obj = { data: 123 };
+
+const ws = new WeakSet();
+ws.add(obj);
+
+// remove reference
+obj = null;
+
+ Now the object has no references
+ It becomes eligible for garbage collection
+ It will be automatically removed from the WeakSet
+ whereas the entry in Set is not removed
+
+Allowed Values
+
+const ws = new WeakSet();
+
+ws.add({});       //  allowed
+ws.add([]);       //  allowed
+
+ws.add(10);       //  Error
+ws.add("hello");  //  Error
+
+Only objects can be stored
+
+Methods of WeakSet
+
+ws.add(obj);      // add object
+ws.has(obj);      // check if exists
+ws.delete(obj);   // remove object
+ 
+WeakSet does NOT support :
+
+ws.size        // not available
+ws.keys()      // not available
+ws.values()    // not available
+ws.entries()   // not available
+for...of       // not iterable
+
+Because items can disappear anytime due to garbage collection
+
+WeakSet vs Set
+
+Feature  	        Set  WeakSet 
+
+Value types	        Any  Only objects
+Duplicates	        No   No
+Garbage collection  No	Yes
+Iterable	        Yes	 No
+Size property	    Yes	 No
