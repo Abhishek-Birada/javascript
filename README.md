@@ -234,9 +234,8 @@ toString() : returns a new string by converting the given input into string.
 trim() : removes whitespace's from both ends of this string and returns a new string, without modifying the original string.
 trimStart() : removes whitespace's from starting of the string and returns a new string, without modifying the original string.
 trimEnd() : removes whitespace's from ending of the string and returns a new string, without modifying the original string.
-match()
-search()
-etc
+match(),search() are related to regular expression.
+...etc
 
 Number :
 
@@ -264,11 +263,10 @@ anything.toFixed() : used to fix decimal places of a value and returns it in str
 anything.toString() : used to convert the number into string.
 anything.toPrecision() : it is used to fix the number of digits in a given number and returns a string. Ex : 1234.56 toPrecision(5) to "1234.5", but for 0.00123 toPrecision(2) = "0.0012"(starting zeros ignored).	
 anything.toLocaleString() : coverts an number into local number naming culture.
-                          example: let num=new Number(100000) num.toLocaleString(en-IN) is represented as 1,00,000 in indian standards, 100,000 in US standards use en-US.
+                          example: let num=new Number(100000) 
+						  num.toLocaleString(en-IN) is represented as 1,00,000 in indian standards, 100,000 in US standards use en-US.
 anything.valueOf(),anything.toExponential()    
 
-Note : whenever we use dot(.) on primitive's then a object is created which is wrapper around the primitive.so that we can use all useful
-	   properties and methods on the primitive.
 
 Math :
   
@@ -328,7 +326,7 @@ arr.includes() // searches the element and returns true if present or else retur
 arr.indexOf() // searches the element and returns it's first occurence index or else returns -1.
 arr1.concat(arr2) // adds two arrays and returns a new array, original array does not change.
 arr.every( callback function ) : returns true, if every element satisfies the function condition or else returns false.
-arr.join() // returns a new string by adding all the elements of the array, separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the 		          separator and if array.length is 0, then empty string is returned.
+arr.join() // returns a new string by adding all the elements of the array, separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator and if array.length is 0, then empty string is returned.
 arr.slice(start,end-1) // returns a new array by extracting a portion of the original array.
 arr.splice(start, deleteCount, item1...) // inserts elements at start(index), if deletecount is 0, then it does not delete the element, else it deletes deleteCount number of elements.
 arr.toString() // converts all array elements into string, original array does not change.
@@ -369,7 +367,7 @@ Note : If the value is null or undefined, it creates and returns an empty object
 
 let obj = { age : 10, "name" : 20, 0 : 30 }
 
-accessing key from object 
+accessing value of an key from object 
 obj.age // 10 
 or
 obj["age" or 'age'] // 10
@@ -382,7 +380,7 @@ obj.age  = 22
 
 Inside an object, every function must be assigned to a key (property name).
 
-In JavaScript, object keys can only be of two main types internally :
+In JavaScript, object keys can only be of two types :
 String
 Symbol
 However, when you use other types, JavaScript automatically converts them to strings.
@@ -415,9 +413,9 @@ If an object contains only integer's as  keys ( by the way they automatically ge
 Now when we print the keys they will be printed in sorted order, it's java script behaviour.
 
 in operator :
-
-ex : let myObject = inserting( "abhishek", 24);
-     console.log( name in myObject ); // true 
+"key" in object
+ex : let myObject = { name : 'abhi', age : 23 };
+     console.log( 'name' in myObject ); // true 
 
 
 Object methods :
@@ -427,7 +425,8 @@ Object.assign() : It copies all properties from one or more objects to the targe
 Object.create() : creates a new object, using an existing object.
 				  Example : const newObj = Object.create(oldObj)
 Object.entries(obj) : returns an array of arrays, where each array has key-value pair.
-Object.freeze(obj) : It freezes an object. so that new properties cannot be added or existing properties cannot be removed and the object's properties and prototype                      cannot be re-assigned. 
+					  output : [ [key,value],[ key,value],.......]
+Object.freeze(obj) : It freezes an object. so that new properties cannot be added or existing properties cannot be removed and cannot modify existing values, cannot change property descriptorsthe and object's properties and prototype cannot be re-assigned. 
 				     syntax : Object.freeze(obj)
 Object.fromEntries() : transforms a list of key-value pairs into an object. It performs the reverse of Object.entries().
 Object.keys(obj) : returns an array of stringed key names.
@@ -436,10 +435,10 @@ Object.hasOwn() : returns true, if the mentioned property is its own property. I
 	  			  syntax : Object.hasOwn(obj, property)
 Object.isFrozen() : returns true, if an object is frozen, else returns false..
 hasOwnProperty() : returns true, if the mentioned property is its own property. If the property is inherited, or does not exist returns false.
-	  			   syntax : objectName.hasOwn(property)
+	  			   syntax : objectName.hasOwnProperty(property)
 Object.seal(obj) : It's same as freeze, but it allows us to reassign the values of properties of an object.
 Object.defineProperty() : This method defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
-						  syntax : Object.defineProperty(obj, prop, descriptor)
+						  syntax : Object.defineProperty(obj, prop, { descriptor })
 						  descriptor are of two types and the descriptor can be only any one of them, They are : 
 						  1. data descriptor : value,
 						                       writable(can we change the value or not),
@@ -458,6 +457,10 @@ let a={1:2}
 let b={2:3} 
 let c={a,b} // merging both objects o/p  : { {1:2} , {2:3}  } , but if we want o/p as {1:2,2:3} use spread operator
 let newobj = {...a,...b}
+
+Note : whenever we use dot(.) on primitive's then a object is created which is wrapper around the primitive. so that we can use all useful
+	   properties and methods on the primitive.
+
 
 Functions : A set of statements that performs a particular task.
 
@@ -508,7 +511,7 @@ add(5, 10);            // 5 and 10 → arguments
 example : function print( ...num ){
 	     	return num
      	  }
-          console.log( print(1,2,3)) // it returns an array [1,2,3], here num becomes is an array
+          console.log( print(1,2,3)) // it returns an array [1,2,3], here num becomes  an array
 		  
 arguments object :
 
@@ -552,7 +555,7 @@ let print = function ( ){
 
  let ans = (a,b) => a+b  // implicit return , no need to write return if there is only one line of code
  						or
-let ans = (a,b) => (a+b)  // implicit return , no need to write return if the code is in ()
+let ans = (a,b) => (a+b)  // implicit return , no need to write return if there is only one line of code and the code is in ()
 
 Note : But hoisting is not possible with arrow function, it will generate an error.
 	   Arrow function does not arguments object.
@@ -565,7 +568,7 @@ example :
 a() {
   console.log('hi');
 }
-a() // error
+a() 
 
 But, it is allowed inside an object or class.
 example1 :
@@ -587,7 +590,7 @@ t.a(); // hi
 
 IIFE : imediately invoked function expression ()()
        it is used to get rid of global pollutants.
-       (normal function or anonymus function or arrow function)(parameters);
+       (normal function or anonymus function or arrow function)( arguments );
        ex : let a = ( function (name){ return name })('abhishek');
        		console.log(a) // abhishek
 
@@ -615,10 +618,6 @@ Higher order function :
 
 A higher order function is a function that takes another function as an argument or returns another function.
 example : above closure example or map(),filter(),reduce(),forEach() etc, these functions take callback function as an argument.
-
-this keyword : this refers to current object and it is used inside the object.
- 		if we print only this, then it refers to an empty object = { } in node environment.
-   		But in browser, this refers to global object that is Window{}
 		
 Operators :
 
