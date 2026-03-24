@@ -85,9 +85,10 @@ String : It is collection of characters enclosed in single or double quotes and 
 Example : let name = "Abhishek"
 string+string = string
 string+number=string
-except +, all other operators like -,*,/,%,** result in number with string
+
 In js, + behaves differently with string, that means it converts the other operand into string.
 whereas other operators, try to convert the string into number.
+all arithmetic operators except + will convert the string to a number automatically.
 ex : 'abhi'+'shek'='abhishek'
      'abhi'+4 = 'abhi4'
      '123'+4 = '1234'
@@ -146,20 +147,25 @@ ex : 0b111
 In JavaScript, non-primitive values are stored and copied by reference (pointer to address ).
 When you assign or pass them, the reference (memory address) is copied, not the actual object.
 
-Non Primitive Datatypes : Arrays, objects, functions etc // Non Primitive Datatypes are passed as reference that means if we change value of one variable the value also gets changed in another variable unlike primitive datatypes . example : let a = 10
+Non Primitive Datatypes : 
+
+Arrays, objects, functions etc 
+Non Primitive Datatypes are passed as reference.
+Because of this, if we change value of one variable the value also gets changed in another variable unlike primitive datatypes . 
+                example : let a = 10
 				let b = a // b = 10
     				b = 9 // here b value changes but a value doesn't change 
 				let a = [1,2,3]
     				let b = a // b = [1,2,3], b and a point to [1,2,3]
 				b.push(4) // b array changes and a array also changes because a and b point to same array 
 shallow copy : it only copies values, but the reference or address is same.
-To overcome this, we use spread operator(...) for copying arrays, objects etc or using Object.assign().
+To overcome this, we use spread operator(...) for copying arrays, objects etc or using Object.assign( {},values or object or objects ) .
 But, nested objects are still shared.
 deep copy : it copies values and the reference or address is different.
 use structuredClone() or JSON.parse(JSON.stringify()) methods.
 
 
-Backticks : ` `
+template literal : we use backticks ` `
 example : let name = "abhi"
 	  let age = 22
 	  console.log(` my name is ${name} and I am ${age} years old `) // instead of "my name is" + name + "and I am" +age+ "years old"
