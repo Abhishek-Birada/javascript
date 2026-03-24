@@ -1093,6 +1093,32 @@ What is a Polyfill in JavaScript?
 A polyfill is writing our code for newer JavaScript features in older browsers that don’t support them.
 
 
+try and catch :
+
+try {
+  // Code that might throw an error
+} catch (error) {
+  // Handle the error
+} finally {
+  // Optional: runs always, whether error occurred or not
+}
+
+try → code that might fail.
+catch → handle the error. Receives the error object.
+finally → optional. Always executes.
+
+example :
+
+try{
+    const age=17;
+    if(age<18){
+        throw new Error("cannot vote");
+    }
+}catch(e){  // e or anyname
+    console.log(e);
+    console.log(e.message);
+}
+
 garbage collection : it's done automatically in java scrpit. It cleans unreachable things.
 
 ex : let obj={ name : 'abhishek",
